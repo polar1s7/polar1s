@@ -1,4 +1,6 @@
 <!--
+Pause/Play = Spacebar
+
 @===@@@=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=@=-         -=@@@@@@@@@@@@@@@@@@==----=@@@@@=-      -=@@@@@@@@@@==----------                                                          
 @@@=@@@@@@@@@@@@@@=@====@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@==@=-        -=@@@@@@@@@@@@@@@@@@@@@@=----=@=@=-    -==@@@@@@@@@@@@==------------                                                        
 @@@==@@@@@@@@@@@@@========@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=-  -     -=@=@@@@@@@@@@@@@@@@@@@@@@=----=@=-   -==@@@@@@@@@@@@@@==-------------                                         -----         
@@ -10278,8 +10280,32 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-      <audio autoplay loop>
+      <audio id="toggleSong" autoplay loop>
         <source src="kirari.mp3" type="audio/mpeg">
       </audio>
+
+      <script>
+        var play = true;
+        
+        var myAudio = document.getElementById("toggleSong");
+        myAudio.volume = 0.1;
+        
+        function onKeyDown(event) {
+                switch (event.keyCode) {
+                    case 32: //SpaceBar                    
+                        if (play) {
+                            myAudio.pause();
+                            play = false;
+                        } else {
+                            myAudio.play();
+                            play = true;
+                        }
+                        break;
+                }
+          return false;
+        }
+        
+        window.addEventListener("keydown", onKeyDown, false);
+        </script>
   </body>
 </html>
