@@ -1,2 +1,2 @@
-# polar1s.me
-webzite
+# polar1s.me // useless landing page
+Yawa moments!
