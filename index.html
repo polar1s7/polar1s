@@ -10263,7 +10263,7 @@ Pause/Play = Spacebar
   <div class="container">
     <div class="row mt-sm-0 mt-lg-5">
       <div class="col-sm-12 col-lg-3 text-center">
-        <img class="rounded-circle d-inline-block mt-5" style="height:250px;width:250px" src="http://pa1.narvii.com/5840/d7011e98770a9c2b9066ba07c7314b7ca3dcd029_00.gif"/>
+        <img class="rounded-circle d-inline-block mt-5" style="height:230px;width:230px" src="http://pa1.narvii.com/5840/d7011e98770a9c2b9066ba07c7314b7ca3dcd029_00.gif"/>
       </div>
       <div class="col-sm-12 col-lg-9">
         <h1 class="mt-5">Hi, My name is Joshua Cruz! I like to
@@ -10285,22 +10285,27 @@ Pause/Play = Spacebar
       </audio>
 
       <script>
-        var play = true;
         
         var myAudio = document.getElementById("toggleSong");
         myAudio.volume = 0.1;
         
         function onKeyDown(event) {
                 switch (event.keyCode) {
-                    case 32: //SpaceBar                    
-                        if (play) {
+                    case 32:                   
+                        if (!myAudio.paused) {
                             myAudio.pause();
-                            play = false;
                         } else {
                             myAudio.play();
-                            play = true;
                         }
                         break;
+                    case 187:
+                    	myAudio.volume += 0.1;
+                    	break;
+                    case 189:
+                    	myAudio.volume -= 0.1;
+                    	break;
+                    default:
+                    	break;
                 }
           return false;
         }
